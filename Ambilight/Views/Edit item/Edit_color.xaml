@@ -1,0 +1,62 @@
+﻿<Page x:Name="page"
+    x:Class="Ambilight.Edit"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Ambilight"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions >
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+
+
+        <NavigationView x:Name="Navigation_1" SelectionChanged="NavigationView_SelectionChanged5" Grid.Column="0" Grid.Row="0" Grid.RowSpan="10" Grid.ColumnSpan="10"  IsPaneOpen="False">
+            <NavigationView.MenuItems>
+                <NavigationViewItem  Icon="OpenFile" Content="Open" Name="Open_file" Tag="Open_file" />
+                <NavigationViewItem  Icon="Save" Content="Save" Name="Save_file" Tag="Save_file" />
+                <NavigationViewItem  Icon="Add" Content="Add" Name="Add" Tag="Add" />
+                <NavigationViewItem  Icon="More" Content="Liste" Name="Liste" Tag="Liste" />
+            </NavigationView.MenuItems>
+
+
+        </NavigationView>
+        <RadioButton x:Name="RadioButton_RGB" Grid.Column="2" Grid.Row="1" Content="RGB" Click="Mode_Selector"/>
+        <RadioButton x:Name="RadioButton_White" Grid.Column="2" Grid.Row="2" Content="White" Click="Mode_Selector"/>
+        <RadioButton x:Name="RadioButton_Scene" Grid.Column="2" Grid.Row="3" Content="Scene" Click="Mode_Selector"/>
+        <Button x:Name="Bouton_edit" Grid.Column="2" Grid.Row="4" Content="Edit info" Click="Bouton_edit_Click" />
+
+
+        <ColorPicker  x:Name="ColorPicker" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="10" Grid.RowSpan="10" ColorSpectrumShape="Ring" ColorChanged="Color_changed_event"/>
+        
+        <Slider x:Name="White_Color_Slider" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Header="White Color :" Minimum="2200" Maximum="6200" SmallChange="100" LargeChange="1000" StepFrequency="100" ValueChanged="White_Intensity_Color_Changed"/>
+        <Slider x:Name="White_Intensity_Slider" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" Header="Intensity :" Minimum="10" Maximum="100" SmallChange="1" LargeChange="10" StepFrequency="1" ValueChanged="White_Intensity_Color_Changed"/>
+
+        <ListView x:Name="Scene_Selector_View" Grid.Column="3" Grid.Row="1" Header="Scenes :" Grid.ColumnSpan="2" Grid.RowSpan="3"   Tapped="Scene_Selector_View_Tapped" />
+        <Slider x:Name="Scene_Intensity_Slider" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" Header="Intensity :" Minimum="10" Maximum="100" SmallChange="1" LargeChange="10" StepFrequency="1" ValueChanged="Scene_Intensity_Color_Changed"/>
+        <Slider x:Name="Scene_Speed_Slider" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2" Header="Speed :" Minimum="10" Maximum="100" SmallChange="1" LargeChange="10" StepFrequency="1" ValueChanged="Scene_Intensity_Color_Changed"/>
+
+        <Button x:Name="Button_apply_color" Content="Apply" Grid.Column="4" Grid.Row="7" Click="Button_Apply_Color" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>
